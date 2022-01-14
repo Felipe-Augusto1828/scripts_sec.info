@@ -4,7 +4,7 @@ import subprocess
 #regular expressions:
 import re
 
-cmd_output = subprocess.run(["netsh", "wlan", "show", "profiles"], capture_output= True).stdout.decode()
+cmd_output = subprocess.run(["netsh", "wlan", "show", "profiles"], capture_output= True).stdout.decode(encoding="unicode_escape")
 profile_names = (re.findall("All User Profile     : (.*)\r", cmd_output))
 wifi_list = []
 
